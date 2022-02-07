@@ -5,7 +5,9 @@ plugins {
 
 android {
     compileSdk 31
-
+ buildFeatures{
+     dataBinding true
+ }
     defaultConfig {
         applicationId "com.yedirapp.yedir"
         minSdk 21
