@@ -1,4 +1,4 @@
-package com.yedirapp.yedir.fragments
+package com.yedirapp.yedir.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.yedirapp.yedir.R
 
-class BasketPage : Fragment() {
+class HomePage : Fragment() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
