@@ -1,4 +1,4 @@
-package com.yedirapp.yedir.fragment
+package com.yedirapp.yedir.onboarding.screens
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.yedirapp.yedir.R
 
-class HomePageFragment : Fragment() {
+class ThirdScreen : Fragment() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,7 +20,7 @@ class HomePageFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home_page, container, false)
+        return inflater.inflate(R.layout.fragment_third_screen, container, false)
     }
 
 }
