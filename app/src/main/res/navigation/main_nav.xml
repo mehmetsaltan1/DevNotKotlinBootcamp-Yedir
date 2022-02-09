@@ -18,13 +18,16 @@
         <action
             android:id="@+id/splashToViewPager"
             app:destination="@id/viewPagerFragment" />
+        <action
+            android:id="@+id/splashToHomePage"
+            app:destination="@id/homePage" />
     </fragment>
     <fragment
         android:id="@+id/viewPagerFragment"
         android:name="com.yedirapp.yedir.onboarding.ViewPagerFragment"
         android:label="ViewPagerFragment" >
         <action
-            android:id="@+id/action_viewPagerFragment_to_homePage"
+            android:id="@+id/viewPagerToHomePage"
             app:destination="@id/homePage" />
     </fragment>
 </navigation>

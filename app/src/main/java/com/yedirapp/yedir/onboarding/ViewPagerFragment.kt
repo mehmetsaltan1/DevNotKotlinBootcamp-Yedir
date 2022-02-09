@@ -32,7 +32,7 @@ class ViewPagerFragment : Fragment() {
         sınıfından bir adapter nesnesi oluşturup içerisine hem listeyi hem bulunduğum fragment'i hem de
         lifecycle ı atadım.*/
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_view_pager, container, false)
-        binding.viewpager.adapter = adapter // Burada da oluşturduğum adapter'ı view pager'ın adapterına atadım
+        binding.viewPager.adapter = adapter // Burada da oluşturduğum adapter'ı view pager'ın adapterına atadım
 
         return binding.root
 
