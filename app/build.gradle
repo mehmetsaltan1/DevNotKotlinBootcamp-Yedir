@@ -36,7 +36,8 @@ android {
 apply plugin: "androidx.navigation.safeargs.kotlin"
 
 apply plugin: 'kotlin-kapt'
-
+//Lottie
+def lottieVersion = "3.7.0"
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.7.0'
@@ -63,4 +64,7 @@ dependencies {
     // JSON Parse
     implementation 'com.google.code.gson:gson:2.6.1'
     implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
+
+    // Lottie
+    implementation "com.airbnb.android:lottie:$lottieVersion"
 }

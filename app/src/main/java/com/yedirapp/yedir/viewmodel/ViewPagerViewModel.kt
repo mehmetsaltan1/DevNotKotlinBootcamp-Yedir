@@ -12,5 +12,4 @@ class ViewPagerViewModel:ViewModel() {
         SecondScreen(),
         ThirdScreen()
     )
-
 }

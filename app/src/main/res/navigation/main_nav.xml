@@ -3,16 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav"
-    app:startDestination="@id/splashScreen">
+    app:startDestination="@id/splashScreenFragment">
 
-    <fragment
-        android:id="@+id/splashScreen"
-        android:name="com.yedirapp.yedir.SplashScreenFragment"
-        android:label="fragment_splash_screen"
-        tools:layout="@layout/fragment_splash_screen" />
     <fragment
         android:id="@+id/homePage"
         android:name="com.yedirapp.yedir.fragment.HomePageFragment"
         android:label="fragment_home_page"
         tools:layout="@layout/fragment_home_page" />
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.yedirapp.yedir.SplashScreenFragment"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/splashToViewPager"
+            app:destination="@id/viewPagerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewPagerFragment"
+        android:name="com.yedirapp.yedir.onboarding.ViewPagerFragment"
+        android:label="ViewPagerFragment" >
+        <action
+            android:id="@+id/action_viewPagerFragment_to_homePage"
+            app:destination="@id/homePage" />
+    </fragment>
 </navigation>
