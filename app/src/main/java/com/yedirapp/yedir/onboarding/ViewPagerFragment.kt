@@ -1,4 +1,4 @@
-package com.yedirapp.yedir.fragment
+package com.yedirapp.yedir.onboarding
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.yedirapp.yedir.R
 
-class HomePage : Fragment() {
+class ViewPagerFragment : Fragment() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -7,8 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.yedirapp.yedir.R
 
-
-class FoodDetailPage : Fragment() {
+class HomePageFragment : Fragment() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

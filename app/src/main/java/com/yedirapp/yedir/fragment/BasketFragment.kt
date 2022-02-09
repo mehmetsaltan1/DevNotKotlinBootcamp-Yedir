@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.yedirapp.yedir.R
 
-class BasketPage : Fragment() {
+class BasketFragment : Fragment() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
