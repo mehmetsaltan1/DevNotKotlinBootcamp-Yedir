@@ -9,7 +9,11 @@
         android:id="@+id/homePage"
         android:name="com.yedirapp.yedir.fragment.HomePageFragment"
         android:label="fragment_home_page"
-        tools:layout="@layout/fragment_home_page" />
+        tools:layout="@layout/fragment_home_page" >
+        <action
+            android:id="@+id/homePageToDetailPage"
+            app:destination="@id/foodDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/splashScreenFragment"
         android:name="com.yedirapp.yedir.SplashScreenFragment"
@@ -29,5 +33,14 @@
         <action
             android:id="@+id/viewPagerToHomePage"
             app:destination="@id/homePage" />
+    </fragment>
+    <fragment
+        android:id="@+id/foodDetailFragment"
+        android:name="com.yedirapp.yedir.fragment.FoodDetailFragment"
+        android:label="fragment_food_detail_page"
+        tools:layout="@layout/fragment_food_detail_page" >
+        <argument
+            android:name="food"
+            app:argType="com.yedirapp.yedir.entity.Foods" />
     </fragment>
 </navigation>
