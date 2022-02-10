@@ -62,9 +62,11 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="25dp"
         android:layout_marginBottom="25dp"
-        android:text="İLERİ"
         android:onClick="@{() -> secondScreenObj.onClickNext()}"
+        android:text="İLERİ"
+        android:textColor="@color/myPaletOrange"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

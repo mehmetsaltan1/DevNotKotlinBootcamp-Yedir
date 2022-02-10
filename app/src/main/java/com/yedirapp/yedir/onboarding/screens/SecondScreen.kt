@@ -20,13 +20,6 @@ import com.yedirapp.yedir.onboarding.ViewPagerFragment
 class SecondScreen : Fragment() {
     private lateinit var binding: FragmentSecondScreenBinding
     private lateinit var viewPager2: ViewPager2
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,14 +30,11 @@ class SecondScreen : Fragment() {
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_second_screen, container, false)
         binding.secondScreenObj = this
-
         return binding.root
     }
 
     fun onClickNext() {
         viewPager2.currentItem = 2
-        Log.e("Deneme", "${viewPager2.currentItem}")
     }
-
 
 }

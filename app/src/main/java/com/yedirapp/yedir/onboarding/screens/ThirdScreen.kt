@@ -12,27 +12,40 @@ import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.yedirapp.yedir.R
 import com.yedirapp.yedir.databinding.FragmentThirdScreenBinding
+import com.yedirapp.yedir.datastore.AppPref
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class ThirdScreen : Fragment() {
 
     private lateinit var binding: FragmentThirdScreenBinding
+    private lateinit var ap: AppPref
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        ap = AppPref(this.requireContext())
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         // Inflate the layout for this fragment
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_third_screen, container, false)
-        binding.thirdScreenObj=this
-       /* binding.txtNext.setOnClickListener {
-            findNavController().navigate(R.id.viewPagerToHomePage)
-        }*/
+        binding.thirdScreenObj = this
 
         return binding.root
 
     }
+
     fun onClickFinish() {
-        Log.e("Deneme","Deneme")
+        val job = CoroutineScope(Dispatchers.Main).launch{
+           ap.setPref(true)
+        }
+
+        findNavController().navigate(R.id.viewPagerToHomePage)
+        job.cancel()
     }
 }

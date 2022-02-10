@@ -16,11 +16,6 @@ import com.yedirapp.yedir.databinding.FragmentViewPagerBinding
 class FirstScreen : Fragment() {
     private lateinit var binding: FragmentFirstScreenBinding
     private lateinit var viewPager2: ViewPager2
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,10 +30,7 @@ class FirstScreen : Fragment() {
     }
 
     fun onClickNext() {
-
         viewPager2.currentItem = 1
-        Log.e("Deneme3", "${viewPager2.currentItem}")
-
     }
 
 }

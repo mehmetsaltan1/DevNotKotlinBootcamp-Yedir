@@ -48,7 +48,7 @@
             android:backgroundTint="@color/myPaletRed"
             android:clickable="true"
             android:onClick="@{()->homePageObj.onClick()}"
-            android:src="@drawable/ic_baseline_shopping_cart_24"
+            android:src="@drawable/shopping_cart"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:tint="@color/myPaletWhite" />
