@@ -21,7 +21,6 @@ class AppPref(var context: Context) {
         val p = context.ds.data.first()
         Log.e("pref2","${p[ONBOARD_KEY]}")
         return p[ONBOARD_KEY] ?:false
-
     }
 
 }

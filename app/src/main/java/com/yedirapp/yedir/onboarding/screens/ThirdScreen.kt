@@ -24,18 +24,17 @@ class ThirdScreen : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         ap = AppPref(this.requireContext())
+
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         // Inflate the layout for this fragment
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_third_screen, container, false)
         binding.thirdScreenObj = this
-
         return binding.root
 
     }
@@ -44,7 +43,6 @@ class ThirdScreen : Fragment() {
         val job = CoroutineScope(Dispatchers.Main).launch{
            ap.setPref(true)
         }
-
         findNavController().navigate(R.id.viewPagerToHomePage)
         job.cancel()
     }
