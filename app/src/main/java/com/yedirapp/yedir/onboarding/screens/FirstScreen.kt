@@ -11,11 +11,11 @@ import androidx.viewpager2.widget.ViewPager2
 import com.yedirapp.yedir.R
 import com.yedirapp.yedir.databinding.FragmentFirstScreenBinding
 import com.yedirapp.yedir.databinding.FragmentSecondScreenBinding
+import com.yedirapp.yedir.databinding.FragmentViewPagerBinding
 
 class FirstScreen : Fragment() {
     private lateinit var binding: FragmentFirstScreenBinding
-    var viewPager = activity?.findViewById<ViewPager2>(R.id.viewPager)
-
+    private lateinit var viewPager2: ViewPager2
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -25,14 +25,20 @@ class FirstScreen : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val viewPager = activity?.findViewById<ViewPager2>(R.id.viewPager)
+        viewPager2 = viewPager!!
         // Inflate the layout for this fragment
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_first_screen, container, false)
-
+        binding.firstScreenObj = this
         return binding.root
     }
-    fun onClickNext(){
-        viewPager!!.currentItem = 1
+
+    fun onClickNext() {
+
+        viewPager2.currentItem = 1
+        Log.e("Deneme3", "${viewPager2.currentItem}")
+
     }
 
 }

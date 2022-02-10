@@ -21,7 +21,7 @@ class SplashScreenFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         Handler().postDelayed({
-            findNavController().navigate(R.id.splashToHomePage)
+            findNavController().navigate(R.id.splashToViewPager)
         }, 2000)
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_splash_screen, container, false)

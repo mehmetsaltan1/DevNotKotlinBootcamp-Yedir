@@ -33,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="SİPARİŞİN TAM ZAMANINDA KAPINDA !"
+        android:text="TAM ZAMANINDA KAPINDA !"
         android:textColor="@color/myPaletRed"
         android:textSize="22sp"
         android:textStyle="bold"

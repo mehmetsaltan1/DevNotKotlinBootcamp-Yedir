@@ -24,6 +24,7 @@ class ThirdScreen : Fragment() {
         // Inflate the layout for this fragment
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_third_screen, container, false)
+        binding.thirdScreenObj=this
        /* binding.txtNext.setOnClickListener {
             findNavController().navigate(R.id.viewPagerToHomePage)
         }*/
@@ -32,7 +33,6 @@ class ThirdScreen : Fragment() {
 
     }
     fun onClickFinish() {
-
         Log.e("Deneme","Deneme")
     }
 }
