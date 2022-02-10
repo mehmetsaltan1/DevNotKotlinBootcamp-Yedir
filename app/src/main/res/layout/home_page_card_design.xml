@@ -58,13 +58,15 @@
 
 
                 <ImageView
+
                     android:id="@+id/imageViewCategoriImage"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ayran" />
+                    imageUrl="@{foodObj.food_image_name}"
+                    app:srcCompat="@drawable/ic_launcher_foreground" />
 
 
             </androidx.cardview.widget.CardView>

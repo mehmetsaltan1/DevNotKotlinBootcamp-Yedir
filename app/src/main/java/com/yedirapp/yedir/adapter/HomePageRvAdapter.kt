@@ -1,11 +1,13 @@
 package com.yedirapp.yedir.adapter
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
+import com.squareup.picasso.Picasso
 import com.yedirapp.yedir.databinding.HomePageCardDesignBinding
 import com.yedirapp.yedir.entity.Foods
 import com.yedirapp.yedir.viewmodel.HomePageViewModel
@@ -32,7 +34,6 @@ RecyclerView.Adapter<HomePageRvAdapter.CardDesignHolder>() {
         val food = foodsList.get(position)
         val t = holder.cardDesignBinding
         t.foodObj = food
-
        /* t.satirCard.setOnClickListener {
             val gecis = AnasayfaFragmentDirections.kisiDetayGecis(kisi)
             Navigation.findNavController(it).navigate(gecis)

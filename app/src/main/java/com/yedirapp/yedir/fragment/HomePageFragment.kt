@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.squareup.picasso.Picasso
 import com.yedirapp.yedir.R
 import com.yedirapp.yedir.adapter.HomePageRvAdapter
 import com.yedirapp.yedir.databinding.FragmentHomePageBinding
@@ -39,8 +40,7 @@ class HomePageFragment : Fragment() {
         viewModel.foodsList.observe(viewLifecycleOwner, {
             adapter = HomePageRvAdapter(requireContext(), it, viewModel)
             binding.homePageRvAdapter = adapter
-            binding.homePageRv.layoutManager =
-                StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.VERTICAL)
+
         })
         return binding.root
     }
