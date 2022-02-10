@@ -9,7 +9,7 @@ data class BasketFoods(
     @SerializedName("yemek_adi") @Expose var food_name: String,
     @SerializedName("yemek_resim_adi") @Expose var food_image_name: String,
     @SerializedName("yemek_fiyat") @Expose var food_price: Int,
-    @SerializedName("yemek_siparis_adet") @Expose var basket_food_number: Int,
+    @SerializedName("yemek_siparis_adet") @Expose var food_total: Int,
     @SerializedName("kullanici_adi") @Expose var username: String,
 ) : Serializable {
 
