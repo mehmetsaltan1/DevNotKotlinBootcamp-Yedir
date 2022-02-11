@@ -1,22 +1,17 @@
 package com.yedirapp.yedir.adapter
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.snackbar.Snackbar
-import com.squareup.picasso.Picasso
 import com.yedirapp.yedir.databinding.HomePageCardDesignBinding
 import com.yedirapp.yedir.entity.Foods
 import com.yedirapp.yedir.fragment.HomePageFragmentDirections
-import com.yedirapp.yedir.viewmodel.HomePageViewModel
 
 class HomePageRvAdapter(
     var mContext: Context,
     var foodsList: List<Foods>,
-    var viewModel: HomePageViewModel
 ) :
     RecyclerView.Adapter<HomePageRvAdapter.CardDesignHolder>() {
 
@@ -31,8 +26,8 @@ class HomePageRvAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardDesignHolder {
         val layoutInflater = LayoutInflater.from(mContext)
-        val tasarim = HomePageCardDesignBinding.inflate(layoutInflater, parent, false)
-        return CardDesignHolder(tasarim)
+        val binding = HomePageCardDesignBinding.inflate(layoutInflater, parent, false)
+        return CardDesignHolder(binding)
     }
 
     override fun onBindViewHolder(holder: CardDesignHolder, position: Int) {
@@ -40,6 +35,7 @@ class HomePageRvAdapter(
         val t = holder.cardDesignBinding
         t.foodObj = food
         t.cardViewCategori.setOnClickListener {
+            // Nav Args yardımıyla her card'a tıklanınca detay sayfasına o kartta bulunan yemeği gönderdim
             val intent = HomePageFragmentDirections.homePageToDetailPage(food)
             Navigation.findNavController(it).navigate(intent)
         }

@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
+            name="detailPageObj"
+            type="com.yedirapp.yedir.fragment.FoodDetailFragment" />
+        <variable
             name="foodObj"
             type="com.yedirapp.yedir.entity.Foods" />
     </data>
@@ -32,5 +35,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnAddFood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="217dp"
+        android:text="Button"
+        android:onClick="@{()->detailPageObj.onClickAddFood(foodObj.food_name,foodObj.food_image_name,foodObj.food_price,detailPageObj.food_total,detailPageObj.username)}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

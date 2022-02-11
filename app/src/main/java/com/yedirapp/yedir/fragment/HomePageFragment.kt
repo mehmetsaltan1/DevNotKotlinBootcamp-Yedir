@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.squareup.picasso.Picasso
 import com.yedirapp.yedir.R
@@ -26,7 +27,7 @@ class HomePageFragment : Fragment() {
     }
 
     fun onClick() {
-        Log.e("Deneme2", "Denemeee")
+        findNavController().navigate(R.id.homePageToBasketPage)
     }
 
 
@@ -38,7 +39,7 @@ class HomePageFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home_page, container, false)
         binding.homePageObj = this
         viewModel.foodsList.observe(viewLifecycleOwner, {
-            adapter = HomePageRvAdapter(requireContext(), it, viewModel)
+            adapter = HomePageRvAdapter(requireContext(), it)
             binding.homePageRvAdapter = adapter
 
         })

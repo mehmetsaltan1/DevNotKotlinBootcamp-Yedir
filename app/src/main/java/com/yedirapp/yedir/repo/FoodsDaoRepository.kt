@@ -1,7 +1,9 @@
 package com.yedirapp.yedir.repo
 
+import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
+import com.google.android.material.snackbar.Snackbar
 import com.yedirapp.yedir.entity.*
 import com.yedirapp.yedir.retrofit.ApiUtils
 import com.yedirapp.yedir.retrofit.FoodsDaoInterface
@@ -75,10 +77,13 @@ class FoodsDaoRepository {
                     call: Call<CrudResponse>?,
                     response: Response<CrudResponse>?
                 ) {
-                    //   Toast.makeText(,"$food_name sepete eklendi",Toast.LENGTH_SHORT)
+
+                   Log.e("başarılı","$food_name başarılı bir şekilde sepete eklendi")
                 }
 
-                override fun onFailure(call: Call<CrudResponse>?, t: Throwable?) {}
+                override fun onFailure(call: Call<CrudResponse>?, t: Throwable?) {
+                    Log.e("başarısız","$food_name başarısız ")
+                }
 
             })
 

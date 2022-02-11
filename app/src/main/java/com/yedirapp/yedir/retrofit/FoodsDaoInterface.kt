@@ -14,6 +14,7 @@ interface FoodsDaoInterface {
     fun allFoods(): Call<FoodsResponse>
 
     @POST("yemekler/sepettekiYemekleriGetir.php")
+    @FormUrlEncoded
     fun allBasketFoods(
         @Field("kullanici_adi") username: String
     ): Call<BasketFoodsResponse>

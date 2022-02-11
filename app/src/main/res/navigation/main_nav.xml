@@ -13,6 +13,9 @@
         <action
             android:id="@+id/homePageToDetailPage"
             app:destination="@id/foodDetailFragment" />
+        <action
+            android:id="@+id/homePageToBasketPage"
+            app:destination="@id/basketFragment" />
     </fragment>
     <fragment
         android:id="@+id/splashScreenFragment"
@@ -43,4 +46,8 @@
             android:name="food"
             app:argType="com.yedirapp.yedir.entity.Foods" />
     </fragment>
+    <fragment
+        android:id="@+id/basketFragment"
+        android:name="com.yedirapp.yedir.fragment.BasketFragment"
+        android:label="BasketFragment" />
 </navigation>
