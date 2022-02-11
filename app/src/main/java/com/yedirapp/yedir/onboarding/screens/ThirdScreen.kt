@@ -23,8 +23,7 @@ class ThirdScreen : Fragment() {
     private lateinit var ap: AppPref
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        ap = AppPref(this.requireContext())
-
+        ap = AppPref(requireContext())
     }
 
     override fun onCreateView(
@@ -32,6 +31,7 @@ class ThirdScreen : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_third_screen, container, false)
         binding.thirdScreenObj = this

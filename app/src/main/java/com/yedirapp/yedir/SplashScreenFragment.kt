@@ -16,12 +16,12 @@ import kotlinx.coroutines.launch
 
 
 class SplashScreenFragment : Fragment() {
-    private var result: Boolean = false
+
     private lateinit var ap: AppPref
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        ap = AppPref(this.requireContext())
+        ap = AppPref(requireContext())
     }
 
     override fun onCreateView(
@@ -43,8 +43,9 @@ class SplashScreenFragment : Fragment() {
     }
 
     private fun onBoardingFinished(): Boolean {
+        var result = false
         val job = CoroutineScope(Dispatchers.Main).launch {
-            result = ap.getPref()
+           result = ap.getPref()
             Log.e("pref3", "$result")
         }
         return result

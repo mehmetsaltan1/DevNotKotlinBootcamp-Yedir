@@ -17,4 +17,13 @@ class HomePageViewModel:ViewModel() {
     fun loadFoods(){
         frepo.getAllFoods()
     }
+    fun addFoodBasket(
+        food_name: String,
+        food_image_name: String,
+        food_price: Int,
+        food_total: Int,
+        username: String
+    ) {
+        frepo.addFoodBasket(food_name, food_image_name, food_price, food_total, username)
+    }
 }
