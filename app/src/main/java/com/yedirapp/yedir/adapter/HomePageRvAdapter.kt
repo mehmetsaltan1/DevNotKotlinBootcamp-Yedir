@@ -37,11 +37,11 @@ class HomePageRvAdapter(
         val t = holder.cardDesignBinding
         t.foodObj = food
         t.homePageObj = homePage
-        /*t.cardViewCategori.setOnClickListener {
+        t.cardView.setOnClickListener {
             // Nav Args yardımıyla her card'a tıklanınca detay sayfasına o kartta bulunan yemeği gönderdim
             val intent = HomePageFragmentDirections.homePageToDetailPage(food)
             Navigation.findNavController(it).navigate(intent)
-        }*/
+        }
 
     }
 

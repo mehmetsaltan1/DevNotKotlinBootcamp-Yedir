@@ -34,7 +34,7 @@ class SplashScreenFragment : Fragment() {
             if (onBoardingFinished()) {
                 findNavController().navigate(R.id.splashToHomePage)
             } else {
-                findNavController().navigate(R.id.splashToViewPager)
+                findNavController().navigate(R.id.splashToHomePage)
             }
 
         }, 2000)

@@ -1,6 +1,7 @@
 package com.yedirapp.yedir.fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -17,7 +18,7 @@ class FoodDetailFragment : Fragment() {
     private lateinit var binding: FragmentFoodDetailPageBinding
     private lateinit var viewModel: DetailPageViewModel
     val username = "mehmet_saltan"
-    val food_total = 2
+    var food_total = 1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val tempViewModel: DetailPageViewModel by viewModels()
@@ -35,6 +36,24 @@ class FoodDetailFragment : Fragment() {
         binding.foodObj = bundle.food                   //bindingde bulunan yemeğe atadım
         binding.detailPageObj = this
         return binding.root
+    }
+
+    fun onClickIncrease() {
+        food_total += 1
+        binding.txtFoodTotal.text = food_total.toString()
+        Log.e("food","$food_total")
+
+    }
+
+    fun onClickDecrease() {
+        if (food_total > 1) {
+            food_total -= 1
+            binding.txtFoodTotal.text = food_total.toString()
+        } else {
+            food_total = 1
+            binding.txtFoodTotal.text = food_total.toString()
+        }
+
     }
 
     fun onClickAddFood(
