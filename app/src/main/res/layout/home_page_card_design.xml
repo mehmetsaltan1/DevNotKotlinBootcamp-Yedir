@@ -8,18 +8,21 @@
         <variable
             name="foodObj"
             type="com.yedirapp.yedir.entity.Foods" />
+
+        <variable
+            name="homePageObj"
+            type="com.yedirapp.yedir.fragment.HomePageFragment" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-
+        android:layout_margin="10dp"
         android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="260dp">
+            android:layout_height="180dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -66,12 +69,12 @@
                     <Button
                         android:id="@+id/button"
 
-                        android:layout_width="40dp"
-                        android:layout_height="50dp"
+                        android:layout_width="38dp"
+                        android:layout_height="45dp"
                         android:layout_gravity="bottom|right"
                         android:layout_marginRight="10dp"
-
                         android:backgroundTint="@color/myPaletRed"
+                        android:onClick="@{() ->homePageObj.onClickAddFood(foodObj.food_name,foodObj.food_image_name,foodObj.food_price, 2, homePageObj.userName)}"
                         android:text="+"
                         android:textSize="14sp"
                         app:cornerRadius="50dp" />
@@ -83,12 +86,11 @@
 
             <ImageView
                 imageUrl="@{foodObj.food_image_name}"
-                android:layout_width="150dp"
-                android:layout_height="220dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentRight="true"
-                android:layout_marginTop="-30dp"
-                android:scaleType="fitXY"
+                android:layout_marginTop="-10dp"
                 android:src="@drawable/ic_launcher_foreground" />
 
         </RelativeLayout>

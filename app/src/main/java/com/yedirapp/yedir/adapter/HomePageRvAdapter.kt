@@ -7,11 +7,13 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.yedirapp.yedir.databinding.HomePageCardDesignBinding
 import com.yedirapp.yedir.entity.Foods
+import com.yedirapp.yedir.fragment.HomePageFragment
 import com.yedirapp.yedir.fragment.HomePageFragmentDirections
 
 class HomePageRvAdapter(
     var mContext: Context,
     var foodsList: List<Foods>,
+    var homePage : HomePageFragment
 ) :
     RecyclerView.Adapter<HomePageRvAdapter.CardDesignHolder>() {
 
@@ -34,6 +36,7 @@ class HomePageRvAdapter(
         val food = foodsList.get(position)
         val t = holder.cardDesignBinding
         t.foodObj = food
+        t.homePageObj = homePage
         /*t.cardViewCategori.setOnClickListener {
             // Nav Args yardımıyla her card'a tıklanınca detay sayfasına o kartta bulunan yemeği gönderdim
             val intent = HomePageFragmentDirections.homePageToDetailPage(food)

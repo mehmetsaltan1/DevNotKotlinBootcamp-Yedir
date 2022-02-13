@@ -67,7 +67,7 @@
             android:backgroundTint="@color/myPaletWhite"
             android:background="@color/myPaletWhite"
             app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
-            app:spanCount="2"
+            app:spanCount="3"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -24,6 +24,15 @@ class ThirdScreen : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         ap = AppPref(requireContext())
+
+    }
+    fun onClickFinish() {
+       val job = CoroutineScope(Dispatchers.Main).launch{
+            ap.setPref(true)
+         }
+        job.cancel()
+        findNavController().navigate(R.id.viewPagerToHomePage)
+
     }
 
     override fun onCreateView(
@@ -39,11 +48,6 @@ class ThirdScreen : Fragment() {
 
     }
 
-    fun onClickFinish() {
-        val job = CoroutineScope(Dispatchers.Main).launch{
-           ap.setPref(true)
-        }
-        findNavController().navigate(R.id.viewPagerToHomePage)
-        job.cancel()
-    }
+
+
 }

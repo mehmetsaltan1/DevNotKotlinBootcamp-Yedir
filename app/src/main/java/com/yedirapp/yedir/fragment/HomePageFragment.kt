@@ -20,6 +20,7 @@ class HomePageFragment : Fragment() {
     private lateinit var binding: FragmentHomePageBinding
     private lateinit var adapter: HomePageRvAdapter
     private lateinit var viewModel: HomePageViewModel
+    val userName = "mehmet_saltan"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val tempViewModel: HomePageViewModel by viewModels()
@@ -28,6 +29,15 @@ class HomePageFragment : Fragment() {
 
     fun onClick() {
         findNavController().navigate(R.id.homePageToBasketPage)
+    }
+    fun onClickAddFood(
+        food_name: String,
+        food_image_name: String,
+        food_price: Int,
+        food_total: Int,
+        username: String
+    ) {
+        viewModel.addFoodBasket(food_name, food_image_name, food_price, food_total, username)
     }
 
 
@@ -39,9 +49,8 @@ class HomePageFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home_page, container, false)
         binding.homePageObj = this
         viewModel.foodsList.observe(viewLifecycleOwner, {
-            adapter = HomePageRvAdapter(requireContext(), it)
+            adapter = HomePageRvAdapter(requireContext(), it,this)
             binding.homePageRvAdapter = adapter
-
         })
         return binding.root
     }
