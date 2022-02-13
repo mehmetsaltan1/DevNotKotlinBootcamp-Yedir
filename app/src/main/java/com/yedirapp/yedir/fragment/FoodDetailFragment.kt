@@ -1,28 +1,31 @@
 package com.yedirapp.yedir.fragment
 
 import android.os.Bundle
-import android.util.Log
+
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.yedirapp.yedir.R
+
 import com.yedirapp.yedir.databinding.FragmentFoodDetailPageBinding
 import com.yedirapp.yedir.viewmodel.DetailPageViewModel
+
+
+
+
 
 
 class FoodDetailFragment : Fragment() {
     private lateinit var binding: FragmentFoodDetailPageBinding
     private lateinit var viewModel: DetailPageViewModel
     val username = "mehmet_saltan"
-    var food_total = 1
-    var basket_total = 2
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         val tempViewModel: DetailPageViewModel by viewModels()
         viewModel = tempViewModel
     }
@@ -55,14 +58,16 @@ class FoodDetailFragment : Fragment() {
 
     }
 
-    fun onClickDecrease(food_total: String,
-                        food_price: Int,
-                        basket_total: Int) {
+    fun onClickDecrease(
+        food_total: String,
+        food_price: Int,
+        basket_total: Int
+    ) {
         viewModel.decrease(food_total, food_price, basket_total)
 
     }
 
-    fun onClickAddFood(
+    fun clickAddFood(
         food_name: String,
         food_image_name: String,
         food_price: Int,

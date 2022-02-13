@@ -32,10 +32,21 @@ class BasketFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_basket_page, container, false)
         binding.basketPageObj = this
+
         viewModel.basketFoodsList.observe(viewLifecycleOwner, {
+            var sepettoplam=0
+            it.listIterator().forEach {
+
+                sepettoplam += it.food_price * it.food_total
+            }
+            Log.e(
+                "basket", "$sepettoplam"
+
+            )
             adapter = BasketPageRvAdapter(requireContext(), it,viewModel)
            binding.BasketPageRv.adapter = adapter
         })

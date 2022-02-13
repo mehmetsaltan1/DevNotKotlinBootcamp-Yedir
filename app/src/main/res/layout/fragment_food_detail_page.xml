@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
@@ -47,6 +48,7 @@
                     imageUrl="@{foodObj.food_image_name}"
                     android:layout_width="0dp"
                     android:layout_height="270dp"
+                    android:layout_marginStart="24dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/linearLayout"
                     app:layout_constraintStart_toStartOf="parent"
@@ -57,19 +59,23 @@
                     android:id="@+id/linearLayout"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginEnd="24dp"
+                    android:gravity="center"
                     android:orientation="vertical"
                     android:padding="0dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageView3"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0">
 
                     <TextView
                         android:id="@+id/textView3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="50dp"
+                        android:layout_gravity="left"
+                        android:layout_marginTop="25dp"
                         android:text="Type"
                         android:textSize="22sp"
                         android:textStyle="bold" />
@@ -78,6 +84,7 @@
                         android:id="@+id/textView4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="left"
                         android:layout_marginBottom="5dp"
                         android:text="Potted Plant"
                         android:textColor="@color/myPaletGreen"
@@ -88,6 +95,8 @@
                         android:id="@+id/textView5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+
                         android:text="Type"
                         android:textSize="22sp"
                         android:textStyle="bold" />
@@ -96,16 +105,20 @@
                         android:id="@+id/textView6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="left"
                         android:layout_marginBottom="5dp"
                         android:text="Potted Plant"
                         android:textColor="@color/myPaletGreen"
                         android:textSize="22sp"
                         android:textStyle="bold" />
 
+
                     <TextView
                         android:id="@+id/textView7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+
                         android:text="Type"
                         android:textSize="22sp"
                         android:textStyle="bold" />
@@ -114,10 +127,14 @@
                         android:id="@+id/textView8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginBottom="5dp"
                         android:text="Potted Plant"
                         android:textColor="@color/myPaletGreen"
                         android:textSize="22sp"
                         android:textStyle="bold" />
+
+
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
@@ -228,7 +245,8 @@
                     android:layout_width="0dp"
                     android:layout_height="60dp"
                     android:layout_marginEnd="32dp"
-                    android:backgroundTint="@color/myPaletRed"
+                    android:backgroundTint="@color/myPaletGreen"
+                    android:onClick="@{() -> detailPageObj.clickAddFood(foodObj.food_name,foodObj.food_image_name,foodObj.food_price, Integer.parseInt(foodTotal),detailPageObj.username)}"
                     android:text="Sepete Ekle"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/txtBasketTotal"
@@ -239,11 +257,13 @@
                     android:id="@+id/txtBasketTotal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginEnd="24dp"
                     android:text='@{Integer.parseInt(basketTotal) > foodObj.food_price ? "₺ "+basketTotal:"₺ "+foodObj.food_price}'
+                    android:textColor="@color/myPaletGreen"
                     android:textSize="28sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/btnAddFoodBasket"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.571" />
             </androidx.constraintlayout.widget.ConstraintLayout>
