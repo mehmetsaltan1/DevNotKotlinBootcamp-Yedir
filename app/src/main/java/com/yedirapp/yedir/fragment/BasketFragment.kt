@@ -38,13 +38,14 @@ class BasketFragment : Fragment() {
         binding.basketPageObj = this
 
         viewModel.basketFoodsList.observe(viewLifecycleOwner, {
-            var sepettoplam=0
+         var basketTotalPrice= 0
             it.listIterator().forEach {
 
-                sepettoplam += it.food_price * it.food_total
+                basketTotalPrice += it.food_price * it.food_total
+                binding.totalBasketPrice = basketTotalPrice.toString()
             }
             Log.e(
-                "basket", "$sepettoplam"
+                "basket", "$basketTotalPrice"
 
             )
             adapter = BasketPageRvAdapter(requireContext(), it,viewModel)

@@ -2,7 +2,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+
+        <variable
+            name="totalBasketPrice"
+            type="String" />
 
         <variable
             name="basketPageObj"
@@ -14,6 +19,7 @@
         android:layout_height="match_parent"
         android:background="@color/myPaletRed"
         tools:context=".fragment.BasketFragment">
+
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView4"
@@ -33,7 +39,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
 
+                android:layout_marginBottom="30dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+            <Button
+                android:id="@+id/btnTotalBasketPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:layout_marginBottom="30dp"
+
+                android:backgroundTint="@color/myPaletRed"
+                android:text='@{totalBasketPrice == null ?"Yükleniyor": totalBasketPrice+" ₺"}'
+                app:cornerRadius="50dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
         </androidx.cardview.widget.CardView>
 
@@ -69,7 +90,6 @@
 
             android:layout_width="wrap_content"
             android:layout_height="200dp"
-
             android:layout_marginStart="60dp"
             android:layout_marginBottom="30dp"
             app:layout_constraintBottom_toTopOf="@+id/cardView4"
