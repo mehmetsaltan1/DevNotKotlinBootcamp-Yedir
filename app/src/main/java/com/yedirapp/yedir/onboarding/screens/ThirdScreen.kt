@@ -18,12 +18,15 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class ThirdScreen : Fragment() {
-
     private lateinit var binding: FragmentThirdScreenBinding
     private lateinit var ap: AppPref
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         ap = AppPref(requireContext())
+        val job = CoroutineScope(Dispatchers.Main).launch{
+            ap.setPref(true)
+        }
+        job.cancel()
 
     }
     fun onClickFinish() {

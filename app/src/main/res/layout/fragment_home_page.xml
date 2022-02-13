@@ -57,7 +57,8 @@
             android:src="@drawable/shopping_cart"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:tint="@color/myPaletWhite" />
+            app:tint="@color/myPaletWhite"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/homePageRv"

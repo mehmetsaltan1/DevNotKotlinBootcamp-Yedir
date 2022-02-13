@@ -48,7 +48,9 @@ class SplashScreenFragment : Fragment() {
            result = ap.getPref()
             Log.e("pref3", "$result")
         }
+
         return result
+
 
     }
 
