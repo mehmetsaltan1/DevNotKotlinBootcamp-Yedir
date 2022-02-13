@@ -2,10 +2,21 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+
+        <variable
+            name="foodTotal"
+            type="String" />
+
+        <variable
+            name="basketTotal"
+            type="String" />
+
         <variable
             name="detailPageObj"
             type="com.yedirapp.yedir.fragment.FoodDetailFragment" />
+
         <variable
             name="foodObj"
             type="com.yedirapp.yedir.entity.Foods" />
@@ -116,7 +127,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="24dp"
             android:text="@{foodObj.food_name}"
             android:textColor="@color/black"
             android:textSize="40sp"
@@ -128,7 +139,7 @@
             android:id="@+id/textView10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="24dp"
             android:text='@{foodObj.food_price + " ₺"}'
             android:textColor="@color/myPaletGreen"
@@ -152,10 +163,10 @@
             android:id="@+id/button2"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="19dp"
             android:backgroundTint="@color/myPaletWhite"
+            android:onClick="@{()->detailPageObj.onClickDecrease(txtFoodTotal.getText().toString(),foodObj.food_price,Integer.parseInt(basketTotal))}"
             android:text="-"
-            android:onClick="@{()->detailPageObj.onClickDecrease()}"
             android:textColor="@color/myPaletGreen"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -166,10 +177,10 @@
             android:id="@+id/button3"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="19dp"
             android:backgroundTint="@color/myPaletWhite"
+            android:onClick="@{()->detailPageObj.onClickIncrease(txtFoodTotal.getText().toString(),foodObj.food_price,foodObj.food_price)}"
             android:text="+"
-            android:onClick="@{()->detailPageObj.onClickIncrease()}"
             android:textColor="@color/myPaletGreen"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -180,7 +191,7 @@
             android:id="@+id/cardView3"
             android:layout_width="60dp"
             android:layout_height="50dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="24dp"
             app:cardBackgroundColor="@color/myPaletGreen"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -191,19 +202,52 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="1"
+                android:text="@{foodTotal}"
                 android:textColor="#FFFFFF" />
         </androidx.cardview.widget.CardView>
 
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="Button"
-            android:onClick="@{() ->detailPageObj.onClickAddFood(foodObj.food_name,foodObj.food_image_name,foodObj.food_price,detailPageObj.food_total, detailPageObj.username)}"
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView3">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/btnAddFoodBasket"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_marginEnd="32dp"
+                    android:backgroundTint="@color/myPaletRed"
+                    android:text="Sepete Ekle"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/txtBasketTotal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txtBasketTotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:text='@{Integer.parseInt(basketTotal) > foodObj.food_price ? "₺ "+basketTotal:"₺ "+foodObj.food_price}'
+                    android:textSize="28sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.571" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

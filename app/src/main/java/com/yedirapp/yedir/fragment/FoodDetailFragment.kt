@@ -19,8 +19,10 @@ class FoodDetailFragment : Fragment() {
     private lateinit var viewModel: DetailPageViewModel
     val username = "mehmet_saltan"
     var food_total = 1
+    var basket_total = 2
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         val tempViewModel: DetailPageViewModel by viewModels()
         viewModel = tempViewModel
     }
@@ -35,24 +37,28 @@ class FoodDetailFragment : Fragment() {
         val bundle: FoodDetailFragmentArgs by navArgs() //Detay sayfasına gelen yemeği
         binding.foodObj = bundle.food                   //bindingde bulunan yemeğe atadım
         binding.detailPageObj = this
+        viewModel.foodTotalResult.observe(this, {
+            binding.foodTotal = it
+        })
+        viewModel.basketTotalResult.observe(this, {
+            binding.basketTotal = it
+        })
         return binding.root
     }
 
-    fun onClickIncrease() {
-        food_total += 1
-        binding.txtFoodTotal.text = food_total.toString()
-        Log.e("food","$food_total")
+    fun onClickIncrease(
+        food_total: String,
+        food_price: Int,
+        basket_total: Int
+    ) {
+        viewModel.increase(food_total, food_price, basket_total)
 
     }
 
-    fun onClickDecrease() {
-        if (food_total > 1) {
-            food_total -= 1
-            binding.txtFoodTotal.text = food_total.toString()
-        } else {
-            food_total = 1
-            binding.txtFoodTotal.text = food_total.toString()
-        }
+    fun onClickDecrease(food_total: String,
+                        food_price: Int,
+                        basket_total: Int) {
+        viewModel.decrease(food_total, food_price, basket_total)
 
     }
 
