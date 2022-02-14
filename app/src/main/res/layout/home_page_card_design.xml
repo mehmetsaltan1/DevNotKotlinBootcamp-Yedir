@@ -49,6 +49,7 @@
                         android:layout_gravity="bottom|left"
                         android:layout_marginLeft="10dp"
                         android:layout_marginBottom="40dp"
+                        android:fontFamily="@font/roboto_medium"
                         android:text="@{foodObj.food_name}"
                         android:textColor="@color/myPaletOrange"
                         android:textSize="20sp"
@@ -61,6 +62,7 @@
                         android:layout_gravity="bottom|left"
                         android:layout_marginLeft="10dp"
                         android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/roboto_light"
                         android:text='@{foodObj.food_price+" ₺"}'
                         android:textColor="@color/myPaletGreen"
                         android:textSize="18sp"

@@ -24,10 +24,14 @@
         tools:layout="@layout/fragment_splash_screen" >
         <action
             android:id="@+id/splashToViewPager"
-            app:destination="@id/viewPagerFragment" />
+            app:destination="@id/viewPagerFragment"
+            app:popUpTo="@id/splashScreenFragment"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/splashToHomePage"
-            app:destination="@id/homePage" />
+            app:destination="@id/homePage"
+            app:popUpTo="@id/splashScreenFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/viewPagerFragment"
@@ -35,7 +39,9 @@
         android:label="ViewPagerFragment" >
         <action
             android:id="@+id/viewPagerToHomePage"
-            app:destination="@id/homePage" />
+            app:destination="@id/homePage"
+            app:popUpTo="@id/viewPagerFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/foodDetailFragment"

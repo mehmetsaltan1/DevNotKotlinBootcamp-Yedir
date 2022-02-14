@@ -53,7 +53,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <TextView
-                    android:id="@+id/textView13"
+                    android:id="@+id/txtBasketFoodName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -73,7 +73,7 @@
                     android:fontFamily="@font/roboto_light"
                     android:text="Most and perfect crumb"
                     app:layout_constraintStart_toEndOf="@+id/cardView5"
-                    app:layout_constraintTop_toBottomOf="@+id/textView13" />
+                    app:layout_constraintTop_toBottomOf="@+id/txtBasketFoodName" />
 
                 <ImageView
                     android:id="@+id/imageView6"
@@ -88,28 +88,28 @@
                     app:srcCompat="@drawable/ic_baseline_shopping_cart_24" />
 
                 <TextView
-                    android:id="@+id/textView15"
+                    android:id="@+id/txtBasketFoodTotal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="8dp"
                     android:fontFamily="@font/roboto_light"
-                    android:text='@{"₺ "+basketFoodsObj.food_price}'
+                    android:text='@{"X "+basketFoodsObj.food_total}'
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageView6"
                     app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
                 <TextView
-                    android:id="@+id/textView16"
+                    android:id="@+id/txtBasketTotalFoodPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="8dp"
                     android:fontFamily="@font/roboto_medium"
-                    android:text='@{"₺ "+basketFoodsObj.food_price}'
+                    android:text='@{"₺ "+(basketFoodsObj.food_price*basketFoodsObj.food_total)}'
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"

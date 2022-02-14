@@ -16,7 +16,6 @@ import kotlinx.coroutines.launch
 
 
 class SplashScreenFragment : Fragment() {
-
     private lateinit var ap: AppPref
     private var result: Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
