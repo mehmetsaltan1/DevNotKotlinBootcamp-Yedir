@@ -7,20 +7,22 @@ import androidx.datastore.preferences.core.*
 import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.coroutines.flow.first
 
+
 class AppPref(var context: Context) {
-    val Context.dataStore : DataStore<Preferences> by preferencesDataStore("newOnboard")
     companion object {
-        val ONBOARD_KEY = booleanPreferencesKey("newOnBoard")
+        val Context.ds : DataStore<androidx.datastore.preferences.core.Preferences> by preferencesDataStore("onBoard")
+
+        val ONBOARD_KEY = booleanPreferencesKey("ONBOARD")
     }
     suspend fun setPref(result:Boolean){
-        context.dataStore.edit {
+        context.ds.edit {
             it[ONBOARD_KEY] = result
         }
     }
     suspend fun getPref():Boolean{
-        val p = context.dataStore.data.first()
+        val p = context.ds.data.first()
         Log.e("pref2","${p[ONBOARD_KEY]}")
-        return p[ONBOARD_KEY] ?:false
+        return p[ONBOARD_KEY] ?: false
     }
 
 }
