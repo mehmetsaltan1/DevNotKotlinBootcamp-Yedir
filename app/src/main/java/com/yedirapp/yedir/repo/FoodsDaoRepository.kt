@@ -12,14 +12,17 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class FoodsDaoRepository {
+
     var foodsList: MutableLiveData<List<Foods>>
     var basketFoodsList: MutableLiveData<List<BasketFoods>>
     var fdao: FoodsDaoInterface
+
 
     init {
         fdao = ApiUtils.getFoodsDaoInterface()
         foodsList = MutableLiveData()
         basketFoodsList = MutableLiveData()
+
     }
 
     fun getFoods(): MutableLiveData<List<Foods>> {
@@ -41,13 +44,23 @@ class FoodsDaoRepository {
     }
 
     fun getAllBasketFoods(username: String) {
+
+
         fdao.allBasketFoods(username).enqueue(object : Callback<BasketFoodsResponse> {
-            override fun onFailure(call: Call<BasketFoodsResponse>?, t: Throwable?) {}
+            override fun onFailure(call: Call<BasketFoodsResponse>?, t: Throwable?) {
+                /*Kullanıcı sepetteki son ürünü de sildiği anda sepet yeni istek attığında faile düştüğünü
+                gördüm burada da ekrana boş bir liste gönderdim*/
+                basketFoodsList.value = emptyList()
+            }
+
             override fun onResponse(
                 call: Call<BasketFoodsResponse>,
                 response: Response<BasketFoodsResponse>
             ) {
+
+                Log.e("response", "${response.body()}")
                 val list = response.body().basket_foods
+
                 basketFoodsList.value = list
             }
         })
@@ -78,11 +91,11 @@ class FoodsDaoRepository {
                     response: Response<CrudResponse>?
                 ) {
 
-                   Log.e("başarılı","$food_name başarılı bir şekilde sepete eklendi")
+                    Log.e("başarılı", "$food_name başarılı bir şekilde sepete eklendi")
                 }
 
                 override fun onFailure(call: Call<CrudResponse>?, t: Throwable?) {
-                    Log.e("başarısız","$food_name başarısız ")
+                    Log.e("başarısız", "$food_name başarısız ")
                 }
 
             })

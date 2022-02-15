@@ -13,43 +13,38 @@ import com.yedirapp.yedir.adapter.BasketPageRvAdapter
 import com.yedirapp.yedir.adapter.HomePageRvAdapter
 import com.yedirapp.yedir.databinding.FragmentBasketPageBinding
 import com.yedirapp.yedir.databinding.FragmentHomePageBinding
+import com.yedirapp.yedir.entity.BasketFoods
 import com.yedirapp.yedir.viewmodel.BasketPageViewModel
 import com.yedirapp.yedir.viewmodel.HomePageViewModel
+import java.lang.Exception
 
 class BasketFragment : Fragment() {
 
     private lateinit var binding: FragmentBasketPageBinding
     private lateinit var adapter: BasketPageRvAdapter
     private lateinit var viewModel: BasketPageViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val tempViewModel: BasketPageViewModel by viewModels()
         viewModel = tempViewModel
     }
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_basket_page, container, false)
         binding.basketPageObj = this
-
         viewModel.basketFoodsList.observe(viewLifecycleOwner, {
-         var basketTotalPrice= 0
+            var basketFoodsTotalPrice = 0
             it.listIterator().forEach {
-
-                basketTotalPrice += it.food_price * it.food_total
-                binding.totalBasketPrice = basketTotalPrice.toString()
+                basketFoodsTotalPrice += it.food_price * it.food_total
             }
-            Log.e(
-                "basket", "$basketTotalPrice"
-
-            )
-            adapter = BasketPageRvAdapter(requireContext(), it,viewModel)
-           binding.BasketPageRv.adapter = adapter
+            binding.totalBasketPrice = basketFoodsTotalPrice.toString()
+            adapter = BasketPageRvAdapter(requireContext(), it, viewModel)
+            binding.BasketPageRv.adapter = adapter
         })
         return binding.root
     }

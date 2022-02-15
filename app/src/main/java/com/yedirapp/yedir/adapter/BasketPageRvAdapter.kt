@@ -1,6 +1,7 @@
 package com.yedirapp.yedir.adapter
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -36,12 +37,12 @@ class BasketPageRvAdapter(
         val t = holder.cardDesignBinding
         t.basketFoodsObj = basketFood
 
-       /* t.imageViewDeleteFood.setOnClickListener {
+        t.imageViewDeleteFood.setOnClickListener {
             Snackbar.make(it, "${basketFood.food_name} silinsin mi ?", Snackbar.LENGTH_LONG)
                 .setAction("Evet") {
                     viewModel.deleteFoodBasket(basketFood.basket_food_id, basketFood.username)
                 }.show()
-        }*/
+        }
     }
 
     override fun getItemCount(): Int {

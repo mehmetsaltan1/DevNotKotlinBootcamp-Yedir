@@ -21,6 +21,7 @@ class HomePageFragment : Fragment() {
     private lateinit var adapter: HomePageRvAdapter
     private lateinit var viewModel: HomePageViewModel
     val userName = "mehmet_saltan"
+    var basketFoodsTotalPrice = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val tempViewModel: HomePageViewModel by viewModels()
