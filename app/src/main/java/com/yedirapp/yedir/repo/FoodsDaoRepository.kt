@@ -2,7 +2,9 @@ package com.yedirapp.yedir.repo
 
 import android.util.Log
 import android.widget.Toast
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import com.google.android.material.snackbar.Snackbar
 import com.yedirapp.yedir.entity.*
 import com.yedirapp.yedir.retrofit.ApiUtils
@@ -16,8 +18,6 @@ class FoodsDaoRepository {
     var foodsList: MutableLiveData<List<Foods>>
     var basketFoodsList: MutableLiveData<List<BasketFoods>>
     var fdao: FoodsDaoInterface
-
-
     init {
         fdao = ApiUtils.getFoodsDaoInterface()
         foodsList = MutableLiveData()
@@ -57,10 +57,8 @@ class FoodsDaoRepository {
                 call: Call<BasketFoodsResponse>,
                 response: Response<BasketFoodsResponse>
             ) {
-
                 Log.e("response", "${response.body()}")
                 val list = response.body().basket_foods
-
                 basketFoodsList.value = list
             }
         })

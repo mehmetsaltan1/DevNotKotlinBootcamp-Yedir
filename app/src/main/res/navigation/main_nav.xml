@@ -51,6 +51,9 @@
         <argument
             android:name="food"
             app:argType="com.yedirapp.yedir.entity.Foods" />
+        <argument
+            android:name="foodDescription"
+            app:argType="com.yedirapp.yedir.entity.FoodsDescription" />
     </fragment>
     <fragment
         android:id="@+id/basketFragment"

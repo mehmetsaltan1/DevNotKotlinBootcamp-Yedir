@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "394813463686",
+    "firebase_url": "https://yedir-28955-default-rtdb.firebaseio.com",
+    "project_id": "yedir-28955",
+    "storage_bucket": "yedir-28955.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:394813463686:android:c7c4d8fc7dea8efefd8507",
+        "android_client_info": {
+          "package_name": "com.yedirapp.yedir"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "394813463686-sh0394sck18g7ilmaiup5kf3hju62d4i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4bUiprhDOuEz5Mlqv96oWd868Fqc7ceE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "394813463686-sh0394sck18g7ilmaiup5kf3hju62d4i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

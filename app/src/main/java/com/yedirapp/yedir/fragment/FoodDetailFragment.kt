@@ -15,11 +15,6 @@ import com.yedirapp.yedir.R
 import com.yedirapp.yedir.databinding.FragmentFoodDetailPageBinding
 import com.yedirapp.yedir.viewmodel.DetailPageViewModel
 
-
-
-
-
-
 class FoodDetailFragment : Fragment() {
     private lateinit var binding: FragmentFoodDetailPageBinding
     private lateinit var viewModel: DetailPageViewModel
@@ -39,6 +34,7 @@ class FoodDetailFragment : Fragment() {
             DataBindingUtil.inflate(inflater, R.layout.fragment_food_detail_page, container, false)
         val bundle: FoodDetailFragmentArgs by navArgs() //Detay sayfasına gelen yemeği
         binding.foodObj = bundle.food                   //bindingde bulunan yemeğe atadım
+        binding.foodDescription = bundle.foodDescription
         binding.detailPageObj = this
         viewModel.foodTotalResult.observe(this, {
             binding.foodTotal = it

@@ -53,7 +53,7 @@
             android:layout_marginBottom="16dp"
             android:backgroundTint="@color/myPaletRed"
             android:clickable="true"
-            android:onClick="@{()->homePageObj.onClick()}"
+            android:onClick="@{()->homePageObj.onClickFab()}"
             android:src="@drawable/shopping_cart"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

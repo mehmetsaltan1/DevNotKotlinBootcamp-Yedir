@@ -14,6 +14,7 @@ import com.squareup.picasso.Picasso
 import com.yedirapp.yedir.R
 import com.yedirapp.yedir.adapter.HomePageRvAdapter
 import com.yedirapp.yedir.databinding.FragmentHomePageBinding
+import com.yedirapp.yedir.entity.Foods
 import com.yedirapp.yedir.viewmodel.HomePageViewModel
 
 class HomePageFragment : Fragment() {
@@ -21,16 +22,16 @@ class HomePageFragment : Fragment() {
     private lateinit var adapter: HomePageRvAdapter
     private lateinit var viewModel: HomePageViewModel
     val userName = "mehmet_saltan"
-    var basketFoodsTotalPrice = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val tempViewModel: HomePageViewModel by viewModels()
         viewModel = tempViewModel
     }
 
-    fun onClick() {
+    fun onClickFab() {
         findNavController().navigate(R.id.homePageToBasketPage)
     }
+
     fun onClickAddFood(
         food_name: String,
         food_image_name: String,
@@ -50,8 +51,16 @@ class HomePageFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home_page, container, false)
         binding.homePageObj = this
         viewModel.foodsList.observe(viewLifecycleOwner, {
-            adapter = HomePageRvAdapter(requireContext(), it,this)
-            binding.homePageRvAdapter = adapter
+            var foodList = it
+            viewModel.foodsDescriptionList.observe(viewLifecycleOwner){
+                adapter = HomePageRvAdapter(
+                    requireContext(), foodList,
+                    it, this
+                )
+                binding.homePageRvAdapter = adapter
+            }
+
+
         })
         return binding.root
     }
