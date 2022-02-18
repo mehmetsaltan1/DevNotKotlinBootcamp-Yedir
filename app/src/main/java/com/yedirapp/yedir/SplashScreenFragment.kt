@@ -32,7 +32,6 @@ class SplashScreenFragment : Fragment() {
     ): View? {
 
         Handler().postDelayed({
-            Log.e("pref", "$result")
             if (result) {
                 findNavController().navigate(R.id.splashToHomePage)
             } else {

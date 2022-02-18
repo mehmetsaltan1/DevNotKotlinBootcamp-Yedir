@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
@@ -71,6 +72,11 @@ class FoodDetailFragment : Fragment() {
         username: String
     ) {
         viewModel.addFoodBasket(food_name, food_image_name, food_price, food_total, username)
+        Toast.makeText(
+            this.requireContext(), "${"$food_total Adet ${food_name} sepete eklendi"}",
+            Toast.LENGTH_LONG
+        ).show()
+
     }
 
 }

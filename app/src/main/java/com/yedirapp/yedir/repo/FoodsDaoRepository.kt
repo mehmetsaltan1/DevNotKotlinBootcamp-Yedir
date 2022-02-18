@@ -57,7 +57,6 @@ class FoodsDaoRepository {
                 call: Call<BasketFoodsResponse>,
                 response: Response<BasketFoodsResponse>
             ) {
-                Log.e("response", "${response.body()}")
                 val list = response.body().basket_foods
                 basketFoodsList.value = list
             }
@@ -89,11 +88,9 @@ class FoodsDaoRepository {
                     response: Response<CrudResponse>?
                 ) {
 
-                    Log.e("başarılı", "$food_name başarılı bir şekilde sepete eklendi")
                 }
 
                 override fun onFailure(call: Call<CrudResponse>?, t: Throwable?) {
-                    Log.e("başarısız", "$food_name başarısız ")
                 }
 
             })
