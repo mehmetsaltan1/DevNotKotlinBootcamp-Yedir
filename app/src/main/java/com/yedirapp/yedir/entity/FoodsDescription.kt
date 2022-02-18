@@ -9,8 +9,7 @@ data class FoodsDescription(
     var food_categori: String? = "",
     var food_calori: String? = "",
     var food_yore: String? = ""
-) :
-    Serializable {
+) : Serializable {
 
 }
 

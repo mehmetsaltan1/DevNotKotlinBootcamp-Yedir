@@ -40,7 +40,6 @@
                 android:id="@+id/BasketPageRv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-
                 android:layout_marginBottom="30dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
