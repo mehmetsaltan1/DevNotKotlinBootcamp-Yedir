@@ -6,6 +6,7 @@
     <data>
 
         <import type="android.view.View" />
+
         <variable
             name="homePageObj"
             type="com.yedirapp.yedir.fragment.HomePageFragment" />
