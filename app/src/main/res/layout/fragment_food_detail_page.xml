@@ -75,7 +75,7 @@
                     app:layout_constraintVertical_bias="0.0">
 
                     <TextView
-                        android:id="@+id/textView3"
+                        android:id="@+id/txtCatName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="left"
@@ -91,12 +91,12 @@
                         android:layout_gravity="left"
                         android:layout_marginBottom="5dp"
                         android:text="@{foodDescription.food_categori}"
-                        android:textColor="@color/myPaletGreen"
+                        android:textColor="@color/myPaletRed"
                         android:textSize="22sp"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/textView5"
+                        android:id="@+id/txtYoreName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="left"
@@ -111,13 +111,13 @@
                         android:layout_gravity="left"
                         android:layout_marginBottom="5dp"
                         android:text="@{foodDescription.food_yore}"
-                        android:textColor="@color/myPaletGreen"
+                        android:textColor="@color/myPaletRed"
                         android:textSize="22sp"
                         android:textStyle="bold" />
 
 
                     <TextView
-                        android:id="@+id/textView7"
+                        android:id="@+id/txtFoodCalori"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="left"
@@ -132,7 +132,7 @@
                         android:layout_gravity="left"
                         android:layout_marginBottom="5dp"
                         android:text="@{foodDescription.food_calori}"
-                        android:textColor="@color/myPaletGreen"
+                        android:textColor="@color/myPaletRed"
                         android:textSize="22sp"
                         android:textStyle="bold" />
 
@@ -155,19 +155,19 @@
             app:layout_constraintTop_toBottomOf="@+id/cardView2" />
 
         <TextView
-            android:id="@+id/textView10"
+            android:id="@+id/txtDetailFoodPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="24dp"
             android:text='@{foodObj.food_price + " ₺"}'
-            android:textColor="@color/myPaletGreen"
+            android:textColor="@color/myPaletRed"
             android:textSize="40sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardView2" />
         <TextView
-            android:id="@+id/textView11"
+            android:id="@+id/txtDetailFoodDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="24dp"
@@ -178,42 +178,42 @@
             app:layout_constraintTop_toBottomOf="@+id/txtFoodDetailName" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btnIncrase"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginTop="19dp"
             android:backgroundTint="@color/myPaletWhite"
             android:onClick="@{()->detailPageObj.onClickDecrease(txtFoodTotal.getText().toString(),foodObj.food_price,Integer.parseInt(basketTotal))}"
             android:text="-"
-            android:textColor="@color/myPaletGreen"
+            android:textColor="@color/myPaletRed"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/cardView3"
-            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+            app:layout_constraintTop_toBottomOf="@+id/txtDetailFoodDescription" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/btnDecrase"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginTop="19dp"
             android:backgroundTint="@color/myPaletWhite"
             android:onClick="@{()->detailPageObj.onClickIncrease(txtFoodTotal.getText().toString(),foodObj.food_price,foodObj.food_price)}"
             android:text="+"
-            android:textColor="@color/myPaletGreen"
+            android:textColor="@color/myPaletRed"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/cardView3"
-            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+            app:layout_constraintTop_toBottomOf="@+id/txtDetailFoodDescription" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView3"
             android:layout_width="60dp"
             android:layout_height="50dp"
             android:layout_marginTop="24dp"
-            app:cardBackgroundColor="@color/myPaletGreen"
+            app:cardBackgroundColor="@color/myPaletRed"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView11">
+            app:layout_constraintTop_toBottomOf="@+id/txtDetailFoodDescription">
 
             <TextView
                 android:id="@+id/txtFoodTotal"
@@ -246,7 +246,7 @@
                     android:layout_width="0dp"
                     android:layout_height="60dp"
                     android:layout_marginEnd="32dp"
-                    android:backgroundTint="@color/myPaletGreen"
+                    android:backgroundTint="@color/myPaletRed"
                     android:onClick="@{() -> detailPageObj.clickAddFood(foodObj.food_name,foodObj.food_image_name,foodObj.food_price, Integer.parseInt(foodTotal),detailPageObj.username)}"
                     android:text="Sepete Ekle"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -260,7 +260,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="24dp"
                     android:text='@{Integer.parseInt(basketTotal) > foodObj.food_price ? "₺ "+basketTotal:"₺ "+foodObj.food_price}'
-                    android:textColor="@color/myPaletGreen"
+                    android:textColor="@color/myPaletRed"
                     android:textSize="28sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

@@ -49,11 +49,11 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="bottom|left"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginBottom="40dp"
+                        android:layout_marginBottom="50dp"
                         android:fontFamily="@font/roboto_medium"
                         android:text="@{foodObj.food_name}"
-                        android:textColor="@color/myPaletOrange"
-                        android:textSize="20sp"
+                        android:textColor="@color/myPaletRed"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -65,8 +65,8 @@
                         android:layout_marginBottom="10dp"
                         android:fontFamily="@font/roboto_light"
                         android:text='@{foodObj.food_price+" ₺"}'
-                        android:textColor="@color/myPaletGreen"
-                        android:textSize="18sp"
+                        android:textColor="#738294"
+                        android:textSize="14sp"
                         android:textStyle="bold" />
 
                     <Button
