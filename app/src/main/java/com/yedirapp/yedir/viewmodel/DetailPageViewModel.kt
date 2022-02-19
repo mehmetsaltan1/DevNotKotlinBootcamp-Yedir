@@ -2,6 +2,7 @@ package com.yedirapp.yedir.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.yedirapp.yedir.entity.BasketFoods
 import com.yedirapp.yedir.repo.FoodsDaoRepository
 import com.yedirapp.yedir.repo.MathematicsRepository
 
@@ -9,10 +10,13 @@ class DetailPageViewModel() : ViewModel() {
     var basketTotalResult = MutableLiveData<String>()
     var foodTotalResult = MutableLiveData<String>()
     var mrepo = MathematicsRepository()
-
+    var frepo = FoodsDaoRepository()
+    var basketFoodsList = MutableLiveData<List<BasketFoods>>()
     init {
         foodTotalResult = mrepo.foodTotalResult
         basketTotalResult = mrepo.basketTotalResult
+        loadBasketFoods("mehmet_saltan")
+        basketFoodsList = frepo.getBasketFoods()
     }
 
     fun increase(
@@ -36,8 +40,14 @@ class DetailPageViewModel() : ViewModel() {
             basket_total
         )
     }
+    fun loadBasketFoods(username: String){
+        frepo.getAllBasketFoods(username)
+    }
+    fun deleteFoodBasket(basket_food_id: Int,
+                         username: String) {
+        frepo.deleteFoodBasket(basket_food_id,username)
+    }
 
-    var frepo = FoodsDaoRepository()
     fun addFoodBasket(
         food_name: String,
         food_image_name: String,

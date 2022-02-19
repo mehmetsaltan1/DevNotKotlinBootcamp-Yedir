@@ -21,7 +21,6 @@ class BasketPageRvAdapter(
     var viewModel: BasketPageViewModel
 ) :
     RecyclerView.Adapter<BasketPageRvAdapter.CardDesignHolder>() {
-
     inner class CardDesignHolder(cardDesignBinding: BasketCardDesignBinding) :
         RecyclerView.ViewHolder(cardDesignBinding.root) {
         var cardDesignBinding: BasketCardDesignBinding
@@ -40,6 +39,17 @@ class BasketPageRvAdapter(
         Snackbar.make(view, "${basketFoodObj.food_name} silinsin mi ?", Snackbar.LENGTH_LONG)
             .setAction("Evet") {
                 viewModel.deleteFoodBasket(basketFoodObj.basket_food_id, basketFoodObj.username)
+                viewModel.loadBasketFoods(basketFoodObj.username)
+            }.show()
+    }
+
+    fun onClickAllBasketFoodDelete(view: View){
+        Snackbar.make(view, "Sepeti boşaltmak istiyor musun ?", Snackbar.LENGTH_LONG)
+            .setAction("Evet") {
+                for (i in basketFoodsList){
+                    viewModel.deleteFoodBasket(i.basket_food_id,"mehmet_saltan")
+                }/*Üstte tüm sepeti silme işlemini for döngüsüyle yapmamın nedeni tüm sepeti silme
+                apisinin olmamasından ötürü ben de kendimce böyle bir algoritma geliştirdim. */
             }.show()
     }
 

@@ -44,8 +44,6 @@ class FoodsDaoRepository {
     }
 
     fun getAllBasketFoods(username: String) {
-
-
         fdao.allBasketFoods(username).enqueue(object : Callback<BasketFoodsResponse> {
             override fun onFailure(call: Call<BasketFoodsResponse>?, t: Throwable?) {
                 /*Kullanıcı sepetteki son ürünü de sildiği anda sepet yeni istek attığında faile düştüğünü

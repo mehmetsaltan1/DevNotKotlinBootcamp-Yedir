@@ -68,13 +68,13 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/textView14"
+                    android:id="@+id/txtEarning"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="4dp"
                     android:fontFamily="@font/roboto_light"
-                    android:text="Most and perfect crumb"
+                    android:text='@{"Bu üründen kazancın "+((basketFoodsObj.food_price*basketFoodsObj.food_total)/2) + " ₺"}'
                     app:layout_constraintStart_toEndOf="@+id/cardView5"
                     app:layout_constraintTop_toBottomOf="@+id/txtBasketFoodName" />
 
@@ -87,7 +87,7 @@
                     android:layout_marginBottom="8dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/cardView5"
-                    app:layout_constraintTop_toBottomOf="@+id/textView14"
+                    app:layout_constraintTop_toBottomOf="@+id/txtEarning"
                     app:srcCompat="@drawable/ic_baseline_shopping_cart_24" />
 
                 <TextView
@@ -102,7 +102,7 @@
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageView6"
-                    app:layout_constraintTop_toBottomOf="@+id/textView14" />
+                    app:layout_constraintTop_toBottomOf="@+id/txtEarning" />
 
                 <TextView
                     android:id="@+id/txtBasketTotalFoodPrice"
@@ -117,15 +117,15 @@
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView14" />
+                    app:layout_constraintTop_toBottomOf="@+id/txtEarning" />
 
                 <ImageView
                     android:id="@+id/imageViewDeleteFood"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="@{()->rvObj.onClickDelete(imageViewDeleteFood,basketFoodsObj)}"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
+                    android:onClick="@{()->rvObj.onClickDelete(imageViewDeleteFood,basketFoodsObj)}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/delete_icon" />

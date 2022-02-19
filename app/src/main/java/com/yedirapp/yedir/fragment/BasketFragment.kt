@@ -42,8 +42,12 @@ class BasketFragment : Fragment() {
             it.listIterator().forEach {
                 basketFoodsTotalPrice += it.food_price * it.food_total
             }
+            /*Üstte yaptığım algoritma sayesinde liste elemanlarımı tek tek gezip içerisinde bulunan
+            fiyatları bir değişkende toplayıp toplam sepet tutarımı bulup aşağıda yer alan işlemle ekrana gönderdim.
+            */
             binding.totalBasketPrice = basketFoodsTotalPrice.toString()
             adapter = BasketPageRvAdapter(requireContext(), it, viewModel)
+            binding.basketRvObj = adapter
             binding.BasketPageRv.adapter = adapter
         })
         return binding.root

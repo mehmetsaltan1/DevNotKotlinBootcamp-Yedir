@@ -10,8 +10,8 @@
             type="com.yedirapp.yedir.entity.Foods" />
 
         <variable
-            name="homePageObj"
-            type="com.yedirapp.yedir.fragment.HomePageFragment" />
+            name="homePageRvObj"
+            type="com.yedirapp.yedir.adapter.HomePageRvAdapter" />
     </data>
 
     <LinearLayout
@@ -36,6 +36,7 @@
                     android:background="@color/white"
                     android:backgroundTint="@color/white"
                     app:cardCornerRadius="8dp"
+
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -69,14 +70,12 @@
                         android:textStyle="bold" />
 
                     <Button
-                        android:id="@+id/button"
-
+                        android:id="@+id/btnAddBasketFood"
                         android:layout_width="38dp"
                         android:layout_height="45dp"
                         android:layout_gravity="bottom|right"
                         android:layout_marginRight="10dp"
                         android:backgroundTint="@color/myPaletRed"
-                        android:onClick="@{() ->homePageObj.onClickAddFood(foodObj, homePageObj.userName)}"
                         android:text="+"
                         android:textSize="14sp"
                         app:cornerRadius="50dp" />

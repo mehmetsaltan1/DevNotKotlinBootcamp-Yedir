@@ -68,15 +68,15 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:adapter="@{homePageRvAdapter}"
-            android:backgroundTint="@color/myPaletWhite"
             android:background="@color/myPaletWhite"
-            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
-            app:spanCount="3"
+            android:backgroundTint="@color/myPaletWhite"
             android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbarHomePage" >
+            app:layout_constraintTop_toBottomOf="@+id/toolbarHomePage"
+            app:spanCount="3">
 
 
         </androidx.recyclerview.widget.RecyclerView>
