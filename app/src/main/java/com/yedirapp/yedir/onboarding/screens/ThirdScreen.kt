@@ -27,6 +27,10 @@ class ThirdScreen : Fragment() {
     }
 
     fun onClickFinish() {
+        /* Bu fonksiyonum sayesinde eğer kullanıcı onboard ekranının son ekranına gelip bitir butonana basarsa
+        data store'uma yazma işlemini başlatıyorum bu yazma işlemi zaman alacağı için corutine yapısından yararlanıp
+        ekranı bu yazma işlemi gerçekleşene kadar bekletiyorum.
+        */
         val job = CoroutineScope(Dispatchers.Main).launch {
             ap.setPref(true)
         }

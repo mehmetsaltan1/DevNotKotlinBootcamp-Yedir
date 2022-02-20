@@ -28,7 +28,7 @@ class FirstScreen : Fragment() {
         binding.firstScreenObj = this
         return binding.root
     }
-
+    //Bir sonraki sayfaya geçme fonksiyonum
     fun onClickNext() {
         viewPager2.currentItem = 1
     }

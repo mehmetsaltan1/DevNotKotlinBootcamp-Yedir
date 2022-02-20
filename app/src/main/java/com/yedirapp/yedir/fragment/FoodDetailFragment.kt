@@ -50,7 +50,7 @@ class FoodDetailFragment : Fragment() {
         })
         return binding.root
     }
-
+   //Artırma fonksiyonum
     fun onClickIncrease(
         food_total: String,
         food_price: Int,
@@ -59,7 +59,7 @@ class FoodDetailFragment : Fragment() {
         viewModel.increase(food_total, food_price, basket_total)
 
     }
-
+    //Azaltma fonksiyonum
     fun onClickDecrease(
         food_total: String,
         food_price: Int,
@@ -68,7 +68,7 @@ class FoodDetailFragment : Fragment() {
         viewModel.decrease(food_total, food_price, basket_total)
 
     }
-
+    //Yemek ekleme fonksiyonum
     fun clickAddFood(
         food_name: String,
         food_image_name: String,

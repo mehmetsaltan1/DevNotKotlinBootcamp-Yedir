@@ -119,17 +119,15 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <Button
-                    android:id="@+id/btnDeleteAllBasketFoods"
+                <TextView
+                    android:id="@+id/txtDeleteAllBasketFoods"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:background="@color/white"
-                    android:backgroundTint="@color/white"
-                    android:onClick="@{()->basketRvObj.onClickAllBasketFoodDelete(btnDeleteAllBasketFoods)}"
                     android:text="Sepeti Boşalt"
                     android:textColor="@color/white"
                     android:textSize="12sp"
+                    android:onClick="@{()->basketRvObj.onClickAllBasketFoodDelete(txtDeleteAllBasketFoods)}"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

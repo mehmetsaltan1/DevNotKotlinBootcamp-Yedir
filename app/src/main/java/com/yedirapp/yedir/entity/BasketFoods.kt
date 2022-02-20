@@ -11,6 +11,6 @@ data class BasketFoods(
     @SerializedName("yemek_fiyat") @Expose var food_price: Int,
     @SerializedName("yemek_siparis_adet") @Expose var food_total: Int,
     @SerializedName("kullanici_adi") @Expose var username: String,
-) : Serializable {
+)  {
 
 }

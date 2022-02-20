@@ -14,9 +14,11 @@ class BasketPageViewModel:ViewModel() {
         loadBasketFoods(username)
         basketFoodsList = frepo.getBasketFoods()
     }
+    //Sepetteki yemekleri yüklediğim fonksiyonum
     fun loadBasketFoods(username: String){
         frepo.getAllBasketFoods(username)
     }
+    //Sepetteki yemekleri sildiğim fonksiyonum
     fun deleteFoodBasket(basket_food_id: Int,
                          username: String) {
         frepo.deleteFoodBasket(basket_food_id,username)

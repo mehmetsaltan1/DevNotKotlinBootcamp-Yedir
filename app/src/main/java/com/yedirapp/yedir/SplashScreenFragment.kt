@@ -20,12 +20,17 @@ class SplashScreenFragment : Fragment() {
     private var result: Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        ap = AppPref(requireContext())
-        val job = CoroutineScope(Dispatchers.Main).launch {
-            result = ap.getPref()
-        }
+        /* Altta yer alan işlemde data store'umdan veri çekme işlemini gerçekleştirdim dönen veriye
+        göre yönlendirme işlemlerini yaptım.
+        */
+        getShared()
     }
-
+fun getShared(){
+    ap = AppPref(requireContext())
+    val job = CoroutineScope(Dispatchers.Main).launch {
+        result = ap.getPref()
+    }
+}
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

@@ -28,14 +28,13 @@ class HomePageFragment : Fragment() {
     private lateinit var viewModel: HomePageViewModel
     private lateinit var foodList: List<Foods>
     private lateinit var basketFoodsList: List<BasketFoods>
-
     val userName = "mehmet_saltan"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val tempViewModel: HomePageViewModel by viewModels()
         viewModel = tempViewModel
     }
-
+   //Fab butonu aracılığıyla anasayfadan sepet sayfasına geçiş fonksiyonum
     fun onClickFab() {
         findNavController().navigate(R.id.homePageToBasketPage)
     }
@@ -56,6 +55,7 @@ class HomePageFragment : Fragment() {
         viewModel.foodsList.observe(viewLifecycleOwner, {
             foodList = it
             viewModel.foodsDescriptionList.observe(viewLifecycleOwner) {
+                //View modelimden aldığım her iki listemi de verileri kullanacağım yer olan RecyclerViewAdapter'ıma gönderdim
                 adapter = HomePageRvAdapter(
                     requireContext(), foodList,
                     it, viewModel, layoutInflater, basketFoodsList,viewLifecycleOwner

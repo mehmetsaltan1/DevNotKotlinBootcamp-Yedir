@@ -10,6 +10,11 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 
 interface FoodsDaoInterface {
+    /* Buradaki genel yapıda get isteğinden dönen cevabı ilgili işlemin cevap sınıfına aktardım ayrıca
+    post isteğinde gerekli olan field'ları belirleyip fonksiyonlara parametre olarak atadım
+    yine burada kullandığım FormUrlEncoded değişkenlerden aktarılan verilerde herhangi bir türkçe karakter
+    bozulmasının önüne geçmek
+    */
     @GET("yemekler/tumYemekleriGetir.php")
     fun allFoods(): Call<FoodsResponse>
 

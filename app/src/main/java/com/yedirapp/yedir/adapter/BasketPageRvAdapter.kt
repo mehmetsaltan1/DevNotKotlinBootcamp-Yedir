@@ -39,6 +39,10 @@ class BasketPageRvAdapter(
         Snackbar.make(view, "${basketFoodObj.food_name} silinsin mi ?", Snackbar.LENGTH_LONG)
             .setAction("Evet") {
                 viewModel.deleteFoodBasket(basketFoodObj.basket_food_id, basketFoodObj.username)
+                /* Burada kullanıcı eğer evet butonuna basarsa view modelde bulunan delete metodunu çağırarak silme
+                işlemini başlatıyorum ayrıca her silmeden sonra alttaki verileri yükleme metodumu çağırma sebebim
+                anasayfada yer alan sepete eklerkenki aynı yemekten bir tane daha var mı sorgusuna yardım etmek.
+                */
                 viewModel.loadBasketFoods(basketFoodObj.username)
             }.show()
     }

@@ -73,31 +73,41 @@ class HomePageRvAdapter(
             val designAlertlayout =
                 layoutInflater.inflate(R.layout.custom_alert_dialog_design, null)
             val editTextAlert = designAlertlayout.findViewById(R.id.customInputText) as EditText
-
             MaterialAlertDialogBuilder(mContext, R.style.MaterialAlertDialog_rounded)
                 .setView(designAlertlayout)
                 .setPositiveButton("Ekle") { dialog, which ->
-                    var basketTotal = 0
                     var food_total = editTextAlert.text.toString().toInt()
-                    basketFoodsList.listIterator().forEach {
-                        if (it.food_image_name == food.food_image_name) {
-                            basketTotal = it.food_total
-                            viewModel.deleteFoodBasket(it.basket_food_id, viewModel.username)
-                            food_total = basketTotal + food_total
-                        }
-                    }
-                    Toast.makeText(
-                        mContext,
-                        "${(food_total - basketTotal)} Adet ${food.food_name} sepete eklendi",
-                        Toast.LENGTH_LONG
-                    ).show()
-                    viewModel.addFoodBasket(
-                        food.food_name,
-                        food.food_image_name,
-                        food.food_price,
-                        food_total,
-                        viewModel.username
-                    )
+                    var basketTotal = 0
+                   if (food_total==0){
+                       Toast.makeText(
+                           mContext,
+                           "Minimum yemek adeti 1 olmalıdır !",
+                           Toast.LENGTH_SHORT
+                       ).show()
+                   }else{
+                       basketFoodsList.listIterator().forEach {
+                           if (it.food_image_name == food.food_image_name) {
+                               basketTotal = it.food_total
+                               viewModel.deleteFoodBasket(it.basket_food_id, viewModel.username)
+                               food_total = basketTotal + food_total
+                           }
+                       }
+                       Toast.makeText(
+                           mContext,
+                           "${(food_total - basketTotal)} Adet ${food.food_name} sepete eklendi",
+                           Toast.LENGTH_SHORT
+                       ).show() /* Toast mesajda yer alan çıkarma işlemi işlem gerçekleşirken food_total verisiyle
+                    basket total verisini toplamamdan oluşan toplam sepete eklenecek miktardan zaten sepette olan
+                    miktarı çıkarıp eklenen miktarı bulmak.
+                    */
+                       viewModel.addFoodBasket(
+                           food.food_name,
+                           food.food_image_name,
+                           food.food_price,
+                           food_total,
+                           viewModel.username
+                       )
+                   }
 
                 }
                 .setNegativeButton("İptal") { dialog, which ->

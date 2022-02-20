@@ -32,7 +32,7 @@ class SecondScreen : Fragment() {
         binding.secondScreenObj = this
         return binding.root
     }
-
+    //Bir sonraki sayfaya geçme fonksiyonum
     fun onClickNext() {
         viewPager2.currentItem = 2
     }

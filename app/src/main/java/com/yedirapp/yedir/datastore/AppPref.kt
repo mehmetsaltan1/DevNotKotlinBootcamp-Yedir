@@ -9,9 +9,11 @@ import kotlinx.coroutines.flow.first
 
 
 class AppPref(var context: Context) {
+    /* Onboard ekranımı kullanıcı son adımı da geçtikten sonra yalnızca bir kere gösterebilmek için
+    data store kullandım.
+    */
     companion object {
         val Context.ds : DataStore<androidx.datastore.preferences.core.Preferences> by preferencesDataStore("onBoard")
-
         val ONBOARD_KEY = booleanPreferencesKey("ONBOARD")
     }
     suspend fun setPref(result:Boolean){

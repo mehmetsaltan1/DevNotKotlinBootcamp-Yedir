@@ -25,19 +25,27 @@ class HomePageViewModel:ViewModel() {
         foodsList = frepo.getFoods()
         foodsDescriptionList = fDrepo.getFoodsDescription()
     }
+    //Anasayfada yer alan bütün yemekleri getirdiğim fonskiyonum
     fun loadFoods(){
         frepo.getAllFoods()
     }
+    //Sepet sayfasında yer alan bütün yemekleri getirdiğim fonskiyonum
     fun loadBasketFoods(username: String){
         frepo.getAllBasketFoods(username)
     }
+    //Detay sayfasına yer alan bütün yemeklerin açıklamalarını getirdiğim fonskiyonum
     fun loadFoodsDescription(){
         fDrepo.getAllFoodsDescription()
     }
+    /*Yemek silme fonskiyonum normal bir bir yapıda silme işlemi olmaması gerekiyordu anasayfada fakat
+    web servisler arasında update servisi olmadığı için bir yemeği iki kere eklerken sepettekini silip son yemeği
+    eklememe yaradı silme fonksiyonum
+    */
     fun deleteFoodBasket(basket_food_id: Int,
                          username: String) {
         frepo.deleteFoodBasket(basket_food_id,username)
     }
+    //Sepete yemek ekleme fonskiyonum
     fun addFoodBasket(
         food_name: String,
         food_image_name: String,

@@ -28,7 +28,7 @@ class FoodsDaoRepository {
     fun getFoods(): MutableLiveData<List<Foods>> {
         return foodsList
     }
-
+    //Tüm yemekleri getirme isteği gönderdiğim fonksiyonum
     fun getAllFoods() {
         fdao.allFoods().enqueue(object : Callback<FoodsResponse> {
             override fun onFailure(call: Call<FoodsResponse>?, t: Throwable?) {}
@@ -42,7 +42,7 @@ class FoodsDaoRepository {
     fun getBasketFoods(): MutableLiveData<List<BasketFoods>> {
         return basketFoodsList
     }
-
+    //Sepetteki tüm yemekleri getirme isteği gönderdiğim fonksiyonum
     fun getAllBasketFoods(username: String) {
         fdao.allBasketFoods(username).enqueue(object : Callback<BasketFoodsResponse> {
             override fun onFailure(call: Call<BasketFoodsResponse>?, t: Throwable?) {
@@ -60,7 +60,7 @@ class FoodsDaoRepository {
             }
         })
     }
-
+    //Sepetten yemek silme isteği gönderdiğim fonksiyonum
     fun deleteFoodBasket(basket_food_id: Int, username: String) {
         fdao.deleteFoodBasket(basket_food_id, username).enqueue(object : Callback<CrudResponse> {
             override fun onResponse(call: Call<CrudResponse>?, response: Response<CrudResponse>?) {
@@ -71,7 +71,7 @@ class FoodsDaoRepository {
 
         })
     }
-
+   //Sepete yemek ekleme isteği gönderdiğim fonksiyonum
     fun addFoodBasket(
         food_name: String,
         food_image_name: String,
@@ -85,7 +85,6 @@ class FoodsDaoRepository {
                     call: Call<CrudResponse>?,
                     response: Response<CrudResponse>?
                 ) {
-
                 }
 
                 override fun onFailure(call: Call<CrudResponse>?, t: Throwable?) {
