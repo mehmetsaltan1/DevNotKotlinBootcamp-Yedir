@@ -29,7 +29,12 @@ class BasketFragment : Fragment() {
         val tempViewModel: BasketPageViewModel by viewModels()
         viewModel = tempViewModel
     }
-
+    fun startAnimation(){
+        binding.animationView.playAnimation()
+    }
+    fun stopAnimation(){
+        binding.animationView.cancelAnimation()
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -49,6 +54,12 @@ class BasketFragment : Fragment() {
             adapter = BasketPageRvAdapter(requireContext(), it, viewModel)
             binding.basketRvObj = adapter
             binding.BasketPageRv.adapter = adapter
+            if (basketFoodsTotalPrice == 0){
+                startAnimation()
+            }
+            else {
+                stopAnimation()
+            }
         })
         return binding.root
     }

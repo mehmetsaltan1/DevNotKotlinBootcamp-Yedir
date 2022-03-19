@@ -38,6 +38,9 @@ class HomePageFragment : Fragment() {
     fun onClickFab() {
         findNavController().navigate(R.id.homePageToBasketPage)
     }
+    fun stopAnimation(){
+        binding.animationView.cancelAnimation()
+    }
      override fun onResume() {
           super.onResume()
           viewModel.loadBasketFoods(userName)
@@ -54,6 +57,7 @@ class HomePageFragment : Fragment() {
         })
         viewModel.foodsList.observe(viewLifecycleOwner, {
             foodList = it
+            stopAnimation()
             viewModel.foodsDescriptionList.observe(viewLifecycleOwner) {
                 //View modelimden aldığım her iki listemi de verileri kullanacağım yer olan RecyclerViewAdapter'ıma gönderdim
                 adapter = HomePageRvAdapter(
@@ -63,9 +67,9 @@ class HomePageFragment : Fragment() {
                 binding.homePageRvAdapter = adapter
             }
 
-
         })
         return binding.root
+
     }
 
 }
